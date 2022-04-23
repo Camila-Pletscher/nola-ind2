@@ -22,27 +22,43 @@ class Producto {
 export const agregarAlCarrito = (productoCodigo) => {
   
   const encontrarProductos = () => {
+
     //Busca el producto entre el stock
     let producto = productos.find(
       (producto) => producto.codigo == productoCodigo
     );
+
     //Busco si esta repetido 
     let productoRepetido = carritoDePedido.find((producto) => producto.codigo == productoCodigo);
     
-    if (sumarProductoRepetido(productoRepetido) && (productoRepetido = producto)) {
+  
+    //Si sumarProductoRepetido devuelve algo entra al if
+    if (sumarProductoRepetido(productoRepetido)) {
+      //Le asigno a producto el valor de productoRepetido
+      productoRepetido = producto;
+      //Sino, si es la primera que ingresa al carrito le digo que cantidad sea 1
+    } else {
       producto.cantidad = 1;
     }
+    
+    // if (sumarProductoRepetido(productoRepetido) && (productoRepetido = producto)) {
+    //   producto.cantidad = 1;
+    // }
+
+    // da undefined la primera vez TENGO QUE BUSCAR EL OPERADOR QUE COMPARE ESE VALOR
+    console.log(sumarProductoRepetido(productoRepetido));
     //Ejecuto fx para ver sumar si esta repetido o eliminar
     
-
     let codigo = producto.codigo;
     let nombre = producto.nombre;
     let precio = producto.precio;
     let img = producto.img;
     let stock = producto.stock;
     let cantidad = producto.cantidad;
+
     //Instancio y creo un nuevo objeto con esos datos
     producto = new Producto(codigo, nombre, precio, img, stock, cantidad);
+
     //Lo agrego al carrito
     carritoDePedido.push(producto);
     
@@ -59,22 +75,36 @@ export const agregarAlCarrito = (productoCodigo) => {
 };
 
 function sumarProductoRepetido (prodRepetido) {
+  //Si en producto repetido hay algo entra al if
   if (prodRepetido) {
+
+    //Crea el carritoDePedido con todos los productos menos con ese repetido
     carritoDePedido = carritoDePedido.filter(item => item.codigo != prodRepetido.codigo);
     console.log(carritoDePedido);
+
+    //A ese producto le agrega 1 a la cantidad
     prodRepetido.cantidad++
+
+    //Agrega ese producto al carrito con al cantidad sumada
     carritoDePedido.push(prodRepetido);
+    //Ese carrito lo agrega al storage
     localStorage.setItem("productosAgregados", JSON.stringify(carritoDePedido));
     console.log(prodRepetido.cantidad);
+
+    //En el modal cambia la cantidad de ese proucto repetido por la actual 
     document.getElementById(`cantidad${prodRepetido.codigo}`).innerHTML = `<p id="cantidad${prodRepetido.codigo}">Cantidad: ${prodRepetido.cantidad}</p>`;
     
+    console.log(prodRepetido);
     return prodRepetido;
     }
 }
 
 function agregarProductoAlModal() {
+  //Traigo el modal por id
   let modalBody = document.querySelector(".modal-body");
+  //Lo vacio para cargarlo
   modalBody.innerHTML = "";
+  //Por cada producto del carrito creo un div y un boton de borrar
   carritoDePedido.forEach(producto => {
     let div = document.createElement("div");
     div.innerHTML = `<p>${producto.nombre}</p>
@@ -85,7 +115,7 @@ function agregarProductoAlModal() {
     const botonBorrar = document.createElement("button");
     botonBorrar.innerHTML += `<i class="small material-icons">delete</i>`
     botonBorrar.addEventListener('click', () => {
-      eliminarProductoDelCarrito(producto);
+    eliminarProductoDelCarrito(producto);
 
 
     })
@@ -95,8 +125,6 @@ function agregarProductoAlModal() {
 
 
   })
-
-
 };
 
 function eliminarProductoDelCarrito(producto) {
