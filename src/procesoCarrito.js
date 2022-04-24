@@ -32,6 +32,15 @@ export const agregarAlCarrito = (productoCodigo) => {
   };
 
   encontrarProductos();
+  Toastify({
+    text: "Has agregado un nuevo producto al carrito de compras",
+    avatar: `<i class="material-icons">add</i>`,
+    backgroundColor: '#000000',
+    offset: {
+      x: 70, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+      y: 10 // vertical axis - can be a number or a string indicating unity. eg: '2em'
+    },
+  }).showToast();
   validacionCarrito();
 };
 
@@ -97,13 +106,14 @@ function agregarProductoAlModal() {
 
 function eliminarProductoDelCarrito(producto) {
   Swal.fire({
-    title: 'Are you sure?',
-    text: "You won't be able to revert this!",
+    title: 'Seguro que lo quieres eliminar?',
+    text: "Eliminarás el producto completo del carrito!",
     icon: 'warning',
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
     cancelButtonColor: '#d33',
-    confirmButtonText: 'Yes, delete it!'
+    cancelButtonText: 'Cancelar',
+    confirmButtonText: 'Si, eliminar'
   }).then((result) => {
     if (result.isConfirmed) {
       carritoDePedido = carritoDePedido.filter(item => item.codigo != producto.codigo);
@@ -111,8 +121,8 @@ function eliminarProductoDelCarrito(producto) {
       localStorage.setItem("productosAgregados", JSON.stringify(carritoDePedido));
       agregarProductoAlModal();
       Swal.fire(
-        'Deleted!',
-        'Your file has been deleted.',
+        'Eliminado',
+        'Eliminaste el producto del carrito',
         'success'
       )
     }
@@ -151,7 +161,7 @@ function instanciaProductos (productoCodigo) {
 function calculadorCarrito (carritoDePedido) {
   let precioTotal = document.getElementById("precio-total");
   //Toma los elementos del array y de ellos calcula precio por la cantidad, no lo acumula y lo devuelve
-  precioTotal.innerText = carritoDePedido.reduce((acc, el) => acc + (el.precio * el.cantidad), 0);
+  precioTotal.innerText = `El precio total $ ${carritoDePedido.reduce((acc, el) => acc + (el.precio * el.cantidad), 0)}`;
   localStorage.setItem("productosAgregados", JSON.stringify(carritoDePedido));
   validacionCarrito();
 }
@@ -161,13 +171,14 @@ function calculadorCarrito (carritoDePedido) {
 //Se ejecuta con el evento click de vaciar carrito
   function vaciarCarrito () {
     Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      title: 'Seguro quieres vaciar el carrito',
+      text: "Eliminarás todos los productos del carrito",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
+      cancelButtonText: 'Cancelar',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Si, vaciar'
     }).then((result) => {
       if (result.isConfirmed) {
         //Vacio el array 
@@ -182,8 +193,8 @@ function calculadorCarrito (carritoDePedido) {
         let divVaciar = document.getElementById('divVaciar');
         divVaciar.innerHTML = "";
         Swal.fire(
-          'Deleted!',
-          'Your file has been deleted.',
+          'Eliminado',
+          'El carrito fue vaciado',
           'success'
         )
       }
@@ -201,7 +212,7 @@ function validacionCarrito () {
   //Si el length del carrito es 0 vacio el contenedor del boton 
   if (carritoDePedido.length == 0) {
     let divVaciar = document.getElementById('divVaciar');
-        divVaciar.innerHTML = "";
+    divVaciar.innerHTML = "";
 
   //Sino agrego el boton de vaciar carrito
   } else {
