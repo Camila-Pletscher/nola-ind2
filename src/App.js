@@ -1,4 +1,4 @@
-import { agregarAlCarrito } from "./agregarAlCarrito.js";
+import { agregarAlCarrito } from "./procesoCarrito.js";
 import { productos } from "./stock.js";
 
 const crearListaDeProductos = (productos) => {
