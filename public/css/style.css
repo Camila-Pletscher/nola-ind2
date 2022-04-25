@@ -9,6 +9,11 @@
     
   }
 
+  p {
+    margin: 0 !important;
+  }
+  
+
 .card {
   flex-direction: row !important;
   flex-wrap: wrap !important;
@@ -17,16 +22,32 @@
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 10px;
+  background-color: #ffffff;
 }
+
+#pre-header {
+  background-color: #F8AC39;
+  color: #ffffff;
+  text-align: center;
+  font-size: 16px;
+  padding-top: 10px;
+  align-content: center;
+  
+}
+
+
 
 #cesta-carrito {
   border-radius: 50%;
-  background-color: aquamarine;
+  background-color: #000000;
   border: 0;
   padding: 15px;
   display: flex;
   align-items: center;
+  width: 60px;
+  height: 60px;
 }
 
 .modal-active {
@@ -42,5 +63,10 @@
 }
 
 .container-fluid {
-  margin-top: 100px !important;
+  margin-top: 150px !important;
+}
+
+.material-icons {
+  color: #F8AC39; 
+  
 }

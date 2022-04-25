@@ -161,7 +161,13 @@ function instanciaProductos (productoCodigo) {
 function calculadorCarrito (carritoDePedido) {
   let precioTotal = document.getElementById("precio-total");
   //Toma los elementos del array y de ellos calcula precio por la cantidad, no lo acumula y lo devuelve
-  precioTotal.innerText = `El precio total $ ${carritoDePedido.reduce((acc, el) => acc + (el.precio * el.cantidad), 0)}`;
+  let precioSubtotal = carritoDePedido.reduce((acc, el) => acc + (el.precio * el.cantidad), 0);
+  if (precioSubtotal > 6000) {
+    precioSubtotal = precioSubtotal * 0.90;
+    precioTotal.innerText = `Su compra supera los $6000. El precio total $ ${precioSubtotal}`
+  } else {
+    precioTotal.innerText = `El precio total $ ${precioSubtotal}`
+  }
   localStorage.setItem("productosAgregados", JSON.stringify(carritoDePedido));
   validacionCarrito();
 }
