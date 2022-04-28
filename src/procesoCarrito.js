@@ -81,6 +81,7 @@ function agregarProductoAlModal() {
   //Por cada producto del carrito creo un div y un boton de borrar
   carritoDePedido.forEach(producto => {
     let div = document.createElement("div");
+    div.classList.add("divProductosCarrito");
     div.innerHTML = `<p>${producto.nombre}</p>
                             <p>Precio: ${producto.precio}</p>
                             <p id="cantidad${producto.codigo}">Cantidad: ${producto.cantidad}</p>
@@ -164,7 +165,7 @@ function calculadorCarrito (carritoDePedido) {
   let precioSubtotal = carritoDePedido.reduce((acc, el) => acc + (el.precio * el.cantidad), 0);
   if (precioSubtotal > 6000) {
     precioSubtotal = precioSubtotal * 0.90;
-    precioTotal.innerText = `Su compra supera los $6000. El precio total $ ${precioSubtotal}`
+    precioTotal.innerText = `Su compra supera los $6000, tenes el 10% off. El precio total $ ${precioSubtotal}`
   } else {
     precioTotal.innerText = `El precio total $ ${precioSubtotal}`
   }
