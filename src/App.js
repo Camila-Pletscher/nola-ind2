@@ -1,8 +1,11 @@
 import { agregarAlCarrito } from "./procesoCarrito.js";
-import { productos } from "./stock.js";
+// import { productos } from "./stock.js";
+import { getData } from "./getData.js";
 
-const crearListaDeProductos = (productos) => {
+const crearListaDeProductos = async () => {
   const tarjeta = document.getElementById("tarjeta");
+  const productos = await getData();
+
   productos.forEach((producto) => {
     const div = document.createElement("div");
     div.classList.add("producto");
@@ -26,5 +29,5 @@ const crearListaDeProductos = (productos) => {
   });
 };
 
-crearListaDeProductos(productos);
+crearListaDeProductos();
 
