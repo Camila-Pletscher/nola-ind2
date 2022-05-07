@@ -1,6 +1,7 @@
-import { productos } from "./stock.js";
+import { getData } from "./getData.js";
 
 let carritoDePedido = [];
+const productos = await getData();
 
 //Valido si en el storage hay algo y sino le asigno un array vacio
 carritoDePedido = JSON.parse(localStorage.getItem("productosAgregados")) ?? [];
@@ -65,7 +66,7 @@ function sumarProductoRepetido (prodRepetido, productoCodigo) {
     //En el modal cambia la cantidad de ese proucto repetido por la actual 
     document.getElementById(`cantidad${prodRepetido.codigo}`).innerHTML = `<p id="cantidad${prodRepetido.codigo}">Cantidad: ${prodRepetido.cantidad}</p>`;
     calculadorCarrito(carritoDePedido);
-    console.log(prodRepetido);
+    
     return prodRepetido;
     } else {
       instanciaProductos(productoCodigo);
@@ -199,6 +200,8 @@ function calculadorCarrito (carritoDePedido) {
         precioTotal.innerText = "";
         let divVaciar = document.getElementById('divVaciar');
         divVaciar.innerHTML = "";
+        let divComprar = document.getElementById('divComprar');
+        divComprar.innerHTML = "";
         Swal.fire(
           'Eliminado',
           'El carrito fue vaciado',
@@ -220,6 +223,8 @@ function validacionCarrito () {
   if (carritoDePedido.length == 0) {
     let divVaciar = document.getElementById('divVaciar');
     divVaciar.innerHTML = "";
+    let divComprar = document.getElementById('divComprar');
+    divComprar.innerHTML = "";
 
   //Sino agrego el boton de vaciar carrito
   } else {
@@ -227,8 +232,17 @@ function validacionCarrito () {
         divVaciar.innerHTML = `<button id="vaciar-carrito" type="button" class="btn btn-danger"><i class="small material-icons">delete_forever</i>Vaciar Carrito</button>`;
     let btnVaciarCarrito = document.getElementById("vaciar-carrito");
     btnVaciarCarrito.addEventListener('click', vaciarCarrito);
+    let divComprar = document.getElementById('divComprar');
+        divComprar.innerHTML = `<button id="comprar-carrito" type="button" class="btn btn-danger"><i class="small material-icons">delete_forever</i>Comprar Carrito</button>`;
+    let btnComprarCarrito = document.getElementById('comprar-carrito');
+    btnComprarCarrito.addEventListener('click', compraFinal);
+
     
   }
 }
 
 validacionCarrito();
+
+function compraFinal() {
+  console.log("funca");
+}
