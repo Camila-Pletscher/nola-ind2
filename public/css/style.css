@@ -6,7 +6,7 @@
   
   body {
     font-family: 'Roboto', sans-serif;
-    
+    background-image: url(/public/images/bg-moon.jpg);
   }
 
   p {
@@ -66,6 +66,7 @@
   margin-top: 150px !important;
   display: flex;
   justify-content: space-between;
+  
 }
 
 .material-icons {
@@ -75,6 +76,16 @@
 
 .divsPago {
   width: 45%;
+}
+
+.divProductosCarrito {
+  display: flex;
+  align-items: flex-start;
+}
+
+.botones-modal {
+  display: flex;
+  justify-content: space-between;
 }
 
 #footer {

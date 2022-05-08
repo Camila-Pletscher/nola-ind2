@@ -15,8 +15,9 @@ const crearListaDeProductos = async () => {
                       <img src="${producto.img}" class="card-img-top" alt="" />
                       <div class="card-body">
                       <h5 class="card-title">${producto.nombre}</h5>
-                      <p class="card-text">Some</p>    
-                      <a class="btn btn-primary" id=btnAgregar${producto.codigo}>Agregar al carrito</a>
+                      <p class="card-text">$${producto.precio}</p>
+                      <a class="btn-floating btn-large waves-effect waves-light amber" id=btnAgregar${producto.codigo}><i class="material-icons">add_shopping_cart</i></a>    
+                      
                       </div>`;
     tarjeta.appendChild(div);
     
@@ -28,6 +29,10 @@ const crearListaDeProductos = async () => {
     });
   });
 };
+
+
+
+
 
 crearListaDeProductos();
 

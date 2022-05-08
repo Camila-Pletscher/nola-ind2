@@ -12,7 +12,7 @@ function finalizarCompra() {
         li.innerHTML = `<img src="${producto.img}" alt="" class="circle">
         <span class="title">${producto.nombre}</span>
         <p>${producto.precio} <br>
-           Second Line
+           Cantidad: ${producto.cantidad}
         </p>`;
 
         listaProductos.appendChild(li);
