@@ -62,8 +62,10 @@
   max-height: 100% !important;
 }
 
-.container-fluid {
+.container {
   margin-top: 150px !important;
+  display: flex;
+  justify-content: space-between;
 }
 
 .material-icons {
@@ -71,5 +73,33 @@
   
 }
 
+.divsPago {
+  width: 45%;
+}
 
+#footer {
+  background-color: #F8AC39;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
 
+#redes {
+  max-width: 300px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+}
+
+#redes img {
+  width: 30px;
+  margin: 5px;
+}
+
+@media screen and (max-width: 600px) {
+  .divsPago {
+    width: 100%;
+  }
+}

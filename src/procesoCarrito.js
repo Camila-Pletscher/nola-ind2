@@ -1,5 +1,6 @@
 import { getData } from "./getData.js";
 
+
 let carritoDePedido = [];
 const productos = await getData();
 
@@ -35,7 +36,7 @@ export const agregarAlCarrito = (productoCodigo) => {
   encontrarProductos();
   Toastify({
     text: "Has agregado un nuevo producto al carrito de compras",
-    avatar: `<i class="material-icons">add</i>`,
+    // avatar: `<i class="material-icons">add</i>`,
     backgroundColor: '#000000',
     offset: {
       x: 70, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
@@ -61,7 +62,8 @@ function sumarProductoRepetido (prodRepetido, productoCodigo) {
     carritoDePedido.push(prodRepetido);
     // //Ese carrito lo agrega al storage
     localStorage.setItem("productosAgregados", JSON.stringify(carritoDePedido));
-    console.log(prodRepetido.cantidad);
+    console.log(carritoDePedido);
+    
 
     //En el modal cambia la cantidad de ese proucto repetido por la actual 
     document.getElementById(`cantidad${prodRepetido.codigo}`).innerHTML = `<p id="cantidad${prodRepetido.codigo}">Cantidad: ${prodRepetido.cantidad}</p>`;
@@ -92,13 +94,12 @@ function agregarProductoAlModal() {
     botonBorrar.innerHTML += `<i class="small material-icons">delete</i>`
     botonBorrar.addEventListener('click', () => {
     eliminarProductoDelCarrito(producto);
-
-
     })
     div.appendChild(botonBorrar);
 
     modalBody.appendChild(div);
     validacionCarrito();
+    
 
   })
   
@@ -233,16 +234,17 @@ function validacionCarrito () {
     let btnVaciarCarrito = document.getElementById("vaciar-carrito");
     btnVaciarCarrito.addEventListener('click', vaciarCarrito);
     let divComprar = document.getElementById('divComprar');
-        divComprar.innerHTML = `<button id="comprar-carrito" type="button" class="btn btn-danger"><i class="small material-icons">delete_forever</i>Comprar Carrito</button>`;
-    let btnComprarCarrito = document.getElementById('comprar-carrito');
-    btnComprarCarrito.addEventListener('click', compraFinal);
+        divComprar.innerHTML = `<a href="/compra.html">
+        <button id="comprar-carrito" type="button" class="btn btn-danger"><i class="small material-icons">delete_forever</i>Comprar Carrito</button>
+    </a>`;
+    
+    
 
     
   }
 }
 
+
+
 validacionCarrito();
 
-function compraFinal() {
-  console.log("funca");
-}
