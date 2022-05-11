@@ -50,6 +50,10 @@
   height: 60px;
 }
 
+nav {
+  background-color: #F8AC39 !important;
+}
+
 .modal-active {
   opacity: 1;
   visibility: visible;
@@ -63,7 +67,7 @@
 }
 
 .container {
-  margin-top: 150px !important;
+  margin-top: 250px !important;
   display: flex;
   justify-content: space-between;
   
