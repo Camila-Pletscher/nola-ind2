@@ -17,6 +17,8 @@ function finalizarCompra() {
 
         listaProductos.appendChild(li);
     })
+
+    
 }
 
 finalizarCompra();

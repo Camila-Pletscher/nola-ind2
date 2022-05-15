@@ -10,6 +10,8 @@ search.addEventListener('click', buscar);
 function buscar() {
     let busqueda = search.value.toUpperCase();
     console.log(busqueda);
-    let productoEncontrado = productos.find (elemento => elemento === busqueda);
+    let codigoProductoEncontrado = productos.indexOf(busqueda);
+    console.log(codigoProductoEncontrado);
+    let productoEncontrado = productos.filter ((el) => el.nombre.includes(busqueda));
     console.log(productoEncontrado);
 }

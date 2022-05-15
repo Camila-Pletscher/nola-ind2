@@ -85,19 +85,25 @@ function agregarProductoAlModal() {
   carritoDePedido.forEach(producto => {
     let div = document.createElement("div");
     div.classList.add("divProductosCarrito");
-    div.innerHTML = `<p>${producto.nombre}</p>
+    div.innerHTML = `<img src="${producto.img}" alt="" class="circle">
+                      <p>${producto.nombre}</p>
                             <p>Precio: ${producto.precio}</p>
                             <p id="cantidad${producto.codigo}">Cantidad: ${producto.cantidad}</p>
                             `;
-
+    let contenedorCarrito = document.createElement("div");
+    contenedorCarrito.classList.add("contenedorCarrito");
+    let but = document.createElement("div");
+    but.classList.add("divBut");
     const botonBorrar = document.createElement("button");
     botonBorrar.innerHTML += `<i class="small material-icons">delete</i>`
     botonBorrar.addEventListener('click', () => {
     eliminarProductoDelCarrito(producto);
     })
-    div.appendChild(botonBorrar);
+    but.appendChild(botonBorrar);
+    contenedorCarrito.appendChild(div);
+    contenedorCarrito.appendChild(but);
+    modalBody.appendChild(contenedorCarrito);
 
-    modalBody.appendChild(div);
     validacionCarrito();
     
 
@@ -167,7 +173,8 @@ function calculadorCarrito (carritoDePedido) {
   let precioSubtotal = carritoDePedido.reduce((acc, el) => acc + (el.precio * el.cantidad), 0);
   if (precioSubtotal > 6000) {
     precioSubtotal = precioSubtotal * 0.90;
-    precioTotal.innerText = `Su compra supera los $6000, tenes el 10% off. El precio total $ ${precioSubtotal}`
+    precioTotal.innerText = `Felicitaciones! Tu compra supera los $6000, tenes el 10% off.`
+    precioTotal.innerHTML += `<p>El precio total es de $ ${precioSubtotal}</p>`
   } else {
     precioTotal.innerText = `El precio total $ ${precioSubtotal}`
   }
@@ -235,7 +242,7 @@ function validacionCarrito () {
     btnVaciarCarrito.addEventListener('click', vaciarCarrito);
     let divComprar = document.getElementById('divComprar');
         divComprar.innerHTML = `<a href="/compra.html">
-        <button id="comprar-carrito" type="button" class="btn btn-danger"><i class="small material-icons">delete_forever</i>Comprar Carrito</button>
+        <button id="comprar-carrito" type="button" class="btn btn-danger black"><i class="small material-icons">check_circle</i>Comprar Carrito</button>
     </a>`;
     
     

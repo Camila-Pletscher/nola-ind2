@@ -41,7 +41,7 @@
         </a>
       </div>
     </div>
-    <div class="container">
+    <div class="container compra">
         <div class="divsPago">
             <ul class="collection">
                 
@@ -53,18 +53,18 @@
                 <form class="col s12">
                   <div class="row">
                     <div class="input-field col s6">
-                      <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-                      <label for="first_name">First Name</label>
+                      <input placeholder="Juan" id="nombre" type="text" class="validate">
+                      <label for="nombre">Nombre</label>
                     </div>
                     <div class="input-field col s6">
-                      <input id="last_name" type="text" class="validate">
-                      <label for="last_name">Last Name</label>
+                      <input placeholder="Perez" id="apellido" type="text" class="validate">
+                      <label for="apellido">Apellido</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s12">
-                      <input disabled value="I am not editable" id="disabled" type="text" class="validate">
-                      <label for="disabled">Disabled</label>
+                      <input value="39568745" id="documento" type="number" class="validate">
+                      <label for="documento">Documento</label>
                     </div>
                   </div>
                   <div class="row">
@@ -81,14 +81,27 @@
                   </div>
                   <div class="row">
                     <div class="col s12">
-                      This is an inline input field:
-                      <div class="input-field inline">
-                        <input id="email_inline" type="email" class="validate">
-                        <label for="email_inline">Email</label>
-                        <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+                      Método de pago:
+                      <div class="col s12">
+                        <input placeholder="4517-5689-8965-2136" value="" id="numTarjeta" type="number" class="validate">
+                        <label for="numTarjeta">Número de la tarjeta</label>
+                      </div>
+                      <div class="col s12">
+                        <input placeholder="Juan E Perez" value="" id="nomTarjeta" type="text" class="validate">
+                        <label for="nomTarjeta">Nombre (como figura en la tarjeta)</label>
+                      </div>
+                      <div class="col s6">
+                        <input placeholder="053" value="" id="codTarjeta" type="number" class="validate">
+                        <label for="codTarjeta">Código de seguridad</label>
+                      </div>
+                      <div class="col s6">
+                        <input placeholder="0526" value="" id="venTarjeta" type="number" class="validate">
+                        <label for="venTarjeta">Vencimiento(mmaa)</label>
                       </div>
                     </div>
+                    </div>
                   </div>
+                  
                 </form>
               </div>
         </div>

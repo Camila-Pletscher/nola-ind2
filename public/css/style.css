@@ -5,8 +5,9 @@
   }
   
   body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Oswald', sans-serif !important;
     background-image: url(/public/images/bg-moon.jpg);
+    
   }
 
   p {
@@ -17,6 +18,17 @@
 .card {
   flex-direction: row !important;
   flex-wrap: wrap !important;
+}
+
+.card .card-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 20px !important;
+}
+
+.card-text {
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  padding-bottom: 1.5em;
 }
 
 .header {
@@ -31,12 +43,28 @@
   background-color: #F8AC39;
   color: #ffffff;
   text-align: center;
-  font-size: 16px;
+  font-size: 18px;
   padding-top: 10px;
   align-content: center;
+  font-family: 'Oswald', sans-serif;
+  
   
 }
 
+#precio-total {
+  padding-bottom: 10px;
+  font-weight: 200;
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  padding-left: 14px;
+  text-align: center;
+  }
+
+ #precio-total p {
+   padding-top: 5px;
+   font-size: 20px;
+   font-weight: 400;
+ } 
 
 
 #cesta-carrito {
@@ -82,9 +110,30 @@ nav {
   width: 45%;
 }
 
-.divProductosCarrito {
+.divProductosCarrito img {
+  width: 50px;
+
+}
+
+.divBut button {
+  background-color: #ffffff;
+  border: 0;
+  
+
+}
+
+.divBut button i {
+  color: #dc3545;  
+
+}
+
+.contenedorCarrito {
   display: flex;
-  align-items: flex-start;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: #aaa6a6 solid 1px;
+  padding-top: 10px;
+  align-items: center;
 }
 
 .botones-modal {
@@ -108,10 +157,33 @@ nav {
 
 }
 
+.compra {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  padding: 80px !important;
+}
+
 #redes img {
   width: 30px;
   margin: 5px;
 }
+
+#vaciar-carrito {
+  display: flex;
+  align-items: center;
+}
+
+#comprar-carrito {
+  display: flex;
+  align-items: center;
+  border: #000000;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none !important;
+}
+
+
 
 @media screen and (max-width: 600px) {
   .divsPago {
