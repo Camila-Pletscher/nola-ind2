@@ -1,6 +1,7 @@
 import { getData } from "./getData.js";
 
 
+
 let carritoDePedido = [];
 const productos = await getData();
 

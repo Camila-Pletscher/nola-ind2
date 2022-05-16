@@ -106,9 +106,11 @@ nav {
   
 }
 
-.divsPago {
+.divPago {
   width: 45%;
 }
+
+
 
 .divProductosCarrito img {
   width: 50px;
@@ -157,9 +159,15 @@ nav {
 
 }
 
+.btnEnviar {
+  margin-top: 10px;
+}
+
+
 .compra {
   background-color: rgba(255, 255, 255, 0.95) !important;
   padding: 80px !important;
+  margin-top: 100px !important;
 }
 
 #redes img {
@@ -183,10 +191,22 @@ a {
   text-decoration: none !important;
 }
 
+.divProductosCompra {
+  width: 50%;
+}
+
+.divProductosCompra p {
+  font-weight: 200;
+}
+
 
 
 @media screen and (max-width: 600px) {
-  .divsPago {
+  .divPago {
+    width: 100%;
+  }
+
+  .divProductosCompra {
     width: 100%;
   }
 }
