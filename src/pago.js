@@ -33,7 +33,7 @@ function calcularCuotas (carrito) {
     let precioSubtotalCompra = carrito.reduce((acc, el) => acc + (el.precio * el.cantidad), 0);
     if (precioSubtotalCompra > 6000) {
       precioSubtotalCompra = precioSubtotalCompra * 0.90;
-      divProductosCompra.innerHTML += `<p>Felicitaciones! Tu compra supera los $6000, tenes el 10% off. El precio total es de $ ${precioSubtotalCompra}</p>`
+      divProductosCompra.innerHTML += `<p>Felicitaciones! Tu compra supera los $6000, tenes el 10% off. <br> El precio total es de $ ${precioSubtotalCompra}</p>`
     } else {
         divProductosCompra.innerHTML += `<p>El precio total de tu pedido es de $${precioSubtotalCompra}</p>`
     }
