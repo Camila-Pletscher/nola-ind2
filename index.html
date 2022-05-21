@@ -56,6 +56,18 @@
           </form>
         </div>
       </nav>
+      
+      <div id="ordenar">
+        <label>Ordenar por:</label>
+      <select class="browser-default orden">
+        <option value="" disabled selected></option>
+        <option value="1">Precio (menor a mayor)</option>
+        <option value="2">Precio (mayor a menor)</option>
+        <option value="3">Orden alfabético (A-Z)</option>
+        
+      </select>
+      </div>
+      
     </div>
     
     
@@ -110,6 +122,7 @@
     <script src="/src/getData.js" type="module"></script>
     <script src="/src/procesoCarrito.js" type="module"></script>
     <script src="/src/buscar.js" type="module"></script>
+    <script src="/src/ordenar.js" type="module"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>

@@ -46,5 +46,6 @@ function calcularCuotas (carrito) {
 
   }
 
+  
 
 

@@ -89,16 +89,52 @@ nav {
   display: block !important;
 }
 
+#ordenar {
+  
+  margin-top: 20px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
 .modal {
   background-color: rgba(255, 255, 255, 0.5) !important;
   max-height: 100% !important;
 }
 
 .container {
-  margin-top: 250px !important;
+  margin-top: 300px !important;
   display: flex;
   justify-content: space-between;
   
+}
+
+.pagoConfirmado {
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.95);
+  display: flex;
+  justify-content: center;
+  margin-top: 200px !important;
+}
+
+.mensajePago {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mensajePago #text_01 {
+  font-weight: 200;
+  font-size: 20px;
+}
+
+.mensajePago #text_00 {
+  font-size: 30px;
+  color: #F8AC39;
+}
+
+.mensajePago #text_02 {
+  font-weight: 200;
 }
 
 .material-icons {
