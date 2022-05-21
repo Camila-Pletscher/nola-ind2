@@ -37,7 +37,6 @@ export const agregarAlCarrito = (productoCodigo) => {
   encontrarProductos();
   Toastify({
     text: "Has agregado un nuevo producto al carrito de compras",
-    // avatar: `<i class="material-icons">add</i>`,
     backgroundColor: '#000000',
     offset: {
       x: 70, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
@@ -120,8 +119,8 @@ function eliminarProductoDelCarrito(producto) {
     text: "Eliminarás el producto completo del carrito!",
     icon: 'warning',
     showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
+    confirmButtonColor: '#F8AC39',
+    cancelButtonColor: '#000',
     cancelButtonText: 'Cancelar',
     confirmButtonText: 'Si, eliminar'
   }).then((result) => {
@@ -134,6 +133,7 @@ function eliminarProductoDelCarrito(producto) {
         'Eliminado',
         'Eliminaste el producto del carrito',
         'success'
+        
       )
     }
   })

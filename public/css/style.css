@@ -133,6 +133,7 @@ nav {
   color: #F8AC39;
 }
 
+
 .mensajePago #text_02 {
   font-weight: 200;
 }
@@ -245,4 +246,11 @@ a {
   .divProductosCompra {
     width: 100%;
   }
+}
+
+
+/* SWEETALERT  */
+
+.swal2-styled.swal2-confirm {
+  background-color: #F8AC39 !important;
 }

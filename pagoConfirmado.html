@@ -44,13 +44,18 @@
     <div class="container pagoConfirmado">
         <div class="mensajePago">
           
-            <i class="large material-icons">credit_card</i>
-        
-            <p id="text_00">Muchas gracias por elegirnos</p>
-            <br>
-            <p id="text_01">Su compra fue confirmada con éxito</p>
-            <br>
-            <p id="text_02">Le enviaremos toda la información de su pedido via mail</p>
+          <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-yellow-only">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div><div class="gap-patch">
+                <div class="circle"></div>
+              </div><div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+          </div>
+            
           
         </div>
         
@@ -59,7 +64,7 @@
     
 
     
-   
+   <script src="./src/confirmacion.js" type="module"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
